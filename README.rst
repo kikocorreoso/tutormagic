@@ -11,6 +11,14 @@ Install
 
     pip install jupytor
 
+or
+
+.. code:: python
+
+    pip install git+https://github.com/kikocorreoso/jupytor.git
+
+Tested on Python 2.7 and Python 3.4 and IPython 3.0.0.
+
 Usage
 -----
 
