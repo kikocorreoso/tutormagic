@@ -10,6 +10,12 @@ code from an IPython code cell.
 pip install jupytor
 ```
 
+or 
+
+```python
+pip install git+https://github.com/kikocorreoso/jupytor.git
+```
+
 ## Usage
 
 In a code cell in the notebook type the following:
