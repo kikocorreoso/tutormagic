@@ -37,3 +37,7 @@ The only available option is the `--lang` or `-l` that allows you to choose one 
 * `%%jupytor --lang python2` or `%%jupytor -l python2` to show a pythontutor IFrame with python2 code.
 * `%%jupytor --lang java` or `%%jupytor -l java` to show a pythontutor IFrame with java code.
 * `%%jupytor --lang javascript` or `%%jupytor -l javascript` to show a pythontutor IFrame with javascript code.
+
+## Example (in spanish)
+
+[Example notebook](http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/Jupytor.ipynb).
