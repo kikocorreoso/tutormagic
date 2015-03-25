@@ -1,4 +1,4 @@
-jupytor extension for the IPython notebook
+tutormagic extension for the IPython notebook
 ==========================================
 
 IPython magics to embed http://www.pythontutor.com within an IFrame in
@@ -9,24 +9,30 @@ Install
 
 .. code:: python
 
-    pip install jupytor
+    pip install tutormagic
 
 or
 
 .. code:: python
 
-    pip install git+https://github.com/kikocorreoso/jupytor.git
+    pip install git+https://github.com/kikocorreoso/tutormagic.git
 
 Tested on Python 2.7 and Python 3.4 and IPython 3.0.0.
 
 Usage
 -----
 
-In a code cell in the notebook type the following:
+First, load the extension:
 
 .. code:: python
 
-    %%jupytor --lang python3
+    %load_ext tutormagic
+
+Once loaded, in a code cell in the notebook type the following:
+
+.. code:: python
+
+    %%tutor --lang python3
     # some python code
     # ...
 
@@ -37,12 +43,11 @@ The only available option is the ``--lang`` or ``-l`` that allows you to
 choose one othe the available languages supported by
 `pythontutor <http://www.pythontutor.com>`__
 
--  ``%%jupytor --lang python3`` or ``%%jupytor -l python3`` or
-   ``%%jupytor`` to show a pythontutor IFrame with python3 code.
--  ``%%jupytor --lang python2`` or ``%%jupytor -l python2`` to show a
+-  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or
+   ``%%tutor`` to show a pythontutor IFrame with python3 code.
+-  ``%%jupytor --lang python2`` or ``%%tutor -l python2`` to show a
    pythontutor IFrame with python2 code.
--  ``%%jupytor --lang java`` or ``%%jupytor -l java`` to show a
+-  ``%%tutor --lang java`` or ``%%tutor -l java`` to show a
    pythontutor IFrame with java code.
--  ``%%jupytor --lang javascript`` or ``%%jupytor -l javascript`` to
+-  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to
    show a pythontutor IFrame with javascript code.
-
