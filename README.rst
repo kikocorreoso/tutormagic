@@ -1,5 +1,5 @@
 tutormagic extension for the IPython notebook
-==========================================
+=============================================
 
 IPython magics to embed http://www.pythontutor.com within an IFrame in
 the IPython notebook using the code from an IPython code cell.
@@ -40,14 +40,26 @@ Options
 -------
 
 The only available option is the ``--lang`` or ``-l`` that allows you to
-choose one othe the available languages supported by
+choose one of the available languages supported by
 `pythontutor <http://www.pythontutor.com>`__
 
--  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or
-   ``%%tutor`` to show a pythontutor IFrame with python3 code.
--  ``%%jupytor --lang python2`` or ``%%tutor -l python2`` to show a
+-  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or ``%%tutor``
+   to show a pythontutor IFrame with python3 code.
+-  ``%%tutor --lang python2`` or ``%%tutor -l python2`` to show a
    pythontutor IFrame with python2 code.
--  ``%%tutor --lang java`` or ``%%tutor -l java`` to show a
-   pythontutor IFrame with java code.
--  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to
-   show a pythontutor IFrame with javascript code.
+-  ``%%tutor --lang java`` or ``%%tutor -l java`` to show a pythontutor
+   IFrame with java code.
+-  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to show a
+   pythontutor IFrame with javascript code.
+
+Example (in spanish)
+--------------------
+
+`Example
+notebook <http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/tutormagic.ipynb>`__.
+
+Name of the extension
+---------------------
+
+The name of the extension was suggested by
+[@dsblank](https://github.com/dsblank).
