@@ -46,7 +46,7 @@ The only available option is the `--lang` or `-l` that allows you to choose one 
 
 ## Example (in spanish)
 
-[Example notebook](http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/Jupytor.ipynb).
+[Example notebook](http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/pythontutor.ipynb).
 
 ## Name of the extension
 
