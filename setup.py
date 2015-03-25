@@ -16,11 +16,11 @@ install_requires = [
 ]
 
 setup(
-    name='jupytor',
+    name='tutormagic',
     version='0.1.0',
     description='Magic to display pythontutor.com from a code cell in the IPython notebook.',
     long_description=long_description,
-    url='https://github.com/kikocorreoso/jupytor',
+    url='https://github.com/kikocorreoso/tutormagic',
 
     # Author details
     author='Kikocorreoso',
@@ -41,8 +41,8 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='ipython notebook pythontutor.com teaching',
+    keywords='ipython jupyter notebook pythontutor.com teaching',
 
-    py_modules=['jupytor'],
+    py_modules=['pythontutor'],
     install_requires=install_requires,
 )
