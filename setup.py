@@ -43,6 +43,6 @@ setup(
     # What does your project relate to?
     keywords='ipython jupyter notebook pythontutor.com teaching',
 
-    py_modules=['pythontutor'],
+    py_modules=['tutormagic'],
     install_requires=install_requires,
 )
