@@ -1,18 +1,18 @@
 """
-=======
-jupytor
-=======
+==========
+tutormagic
+==========
 
 Magics to display pythontutor.com in the notebook.
 
 Usage
 =====
 
-To enable the magics below, execute ``%load_ext jupytor``.
+To enable the magics below, execute ``%load_ext tutormagic``.
 
-``%%jupytor``
+``%%tutormagic``
 
-{JUPYTOR_DOC}
+{tutormagic_DOC}
 
 """
 
@@ -44,13 +44,13 @@ from IPython.utils.text import dedent
 from IPython.display import display, IFrame
 
 @magics_class
-class JupytorMagics(Magics):
+class TutorMagics(Magics):
     """
 A magic function to show pythontutor.com frame from a code cell.
 
     """
     def __init__(self, shell):
-        super(JupytorMagics, self).__init__(shell)
+        super(TutorMagics, self).__init__(shell)
 
     @skip_doctest
     @magic_arguments()
@@ -66,19 +66,19 @@ A magic function to show pythontutor.com frame from a code cell.
         nargs='*',
         )
     @cell_magic
-    def jupytor(self, line, cell=None, local_ns=None):
+    def tutor(self, line, cell=None, local_ns=None):
         '''
 Create an iframe embedding the pythontutor.com page 
 with the code included in the code cell::
 
-In [1]: %%jupytor -l 'python3'
+In [1]: %%tutor -l 'python3'
 ....: a = 1
 ....: b = 1
 ....: a + b
 
 [You will see an iframe with the pythontutor.com page including the code above]
 '''
-        args = parse_argstring(self.jupytor, line)
+        args = parse_argstring(self.tutor, line)
 
         if args.lang:
             if args.lang[0] in ['python2', 'python3', 'java', 'javascript']:
@@ -106,8 +106,8 @@ In [1]: %%jupytor -l 'python3'
         display(IFrame(url, height = 350, width = "90%"))
         
 __doc__ = __doc__.format(
-    JUPYTOR_DOC = dedent(JupytorMagics.jupytor.__doc__))
+    tutormagic_DOC = dedent(TutorMagics.tutor.__doc__))
 
 def load_ipython_extension(ip):
     """Load the extension in IPython."""
-    ip.register_magics(JupytorMagics)
+    ip.register_magics(TutorMagics)
