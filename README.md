@@ -16,7 +16,7 @@ or
 pip install git+https://github.com/kikocorreoso/tutormagic.git
 ```
 
-Tested on Python 2.7 and Python 3.4 and IPython/Jupter 3.x/4.x.
+Tested on Python 2.7 and Python 3.4 and IPython/Jupyter 3.x/4.x.
 
 ## Usage
 
