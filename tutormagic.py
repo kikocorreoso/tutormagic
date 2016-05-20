@@ -35,7 +35,7 @@ elif sys.version_info.major == 3 and sys.version_info.minor >= 3:
     from urllib.parse import quote
 else:
     warnings.warn("This extension has not been tested on this Python version", UserWarning)
-    
+
 from IPython.core.magic import Magics, magics_class, cell_magic
 from IPython.testing.skipdoctest import skip_doctest
 from IPython.core.magic_arguments import (argument, magic_arguments,
@@ -46,7 +46,7 @@ from IPython.display import display, IFrame
 @magics_class
 class TutorMagics(Magics):
     """
-A magic function to show pythontutor.com frame from a code cell.
+    A magic function to show pythontutor.com frame from a code cell.
 
     """
     def __init__(self, shell):
@@ -59,7 +59,12 @@ A magic function to show pythontutor.com frame from a code cell.
         help="Possible languages to be displayed within the iframe. Possible values are: "
              "python2, python3, java, javascript"
         )
-    
+
+    @argument(
+        '-h', '--height', action='store', nargs=1,
+        help="Change the height of the output area display"
+        )
+
     #@needs_local_scope
     @argument(
         'code',
@@ -68,16 +73,16 @@ A magic function to show pythontutor.com frame from a code cell.
     @cell_magic
     def tutor(self, line, cell=None, local_ns=None):
         '''
-Create an iframe embedding the pythontutor.com page 
-with the code included in the code cell::
+        Create an iframe embedding the pythontutor.com page
+        with the code included in the code cell::
 
-In [1]: %%tutor -l 'python3'
-....: a = 1
-....: b = 1
-....: a + b
+        In [1]: %%tutor -l 'python3'
+        ....: a = 1
+        ....: b = 1
+        ....: a + b
 
-[You will see an iframe with the pythontutor.com page including the code above]
-'''
+        [You will see an iframe with the pythontutor.com page including the code above]
+        '''
         args = parse_argstring(self.tutor, line)
 
         if args.lang:
@@ -88,7 +93,7 @@ In [1]: %%tutor -l 'python3'
                                  "'python2', 'python3', 'java', 'javascript'".format(args.lang[0]))
         else:
             lang = "python3"
-        
+
         url = "http://pythontutor.com/iframe-embed.html#code="
         url += quote(cell)
         url += "&origin=opt-frontend.js&cumulative=false&heapPrimitives=false"
@@ -101,10 +106,13 @@ In [1]: %%tutor -l 'python3'
             url += "py=java&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
         if lang == "javascript":
             url += "py=js&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        
+
         # Display the results in the output area
-        display(IFrame(url, height = 350, width = "90%"))
-        
+        if args.height:
+            display(IFrame(url, height = int(args.height[0]), width = "100%"))
+        else:
+            display(IFrame(url, height = 350, width = "100%"))
+
 __doc__ = __doc__.format(
     tutormagic_DOC = dedent(TutorMagics.tutor.__doc__))
 
