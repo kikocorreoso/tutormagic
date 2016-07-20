@@ -43,7 +43,10 @@ The only available option is the `--lang` or `-l` that allows you to choose one 
 * `%%tutor --lang python2` or `%%tutor -l python2` to show a pythontutor IFrame with python2 code.
 * `%%tutor --lang java` or `%%tutor -l java` to show a pythontutor IFrame with java code.
 * `%%tutor --lang javascript` or `%%tutor -l javascript` to show a pythontutor IFrame with javascript code.
-
+* `%%tutor --tab` or `%%tutor -t` to tell webbrowser to open the url,
+  resulting in a new browser frame rather than an IFrame (should
+  combine with --lang)
+  
 ## Example (in spanish)
 
 [Example notebook](http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/tutormagic.ipynb).
