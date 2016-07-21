@@ -26,6 +26,7 @@ To enable the magics below, execute ``%load_ext tutormagic``.
 #   kikocorreoso
 #-----------------------------------------------------------------------------
 
+import webbrowser
 import warnings
 warnings.simplefilter("always")
 import sys
@@ -63,6 +64,11 @@ class TutorMagics(Magics):
     @argument(
         '-h', '--height', action='store', nargs=1,
         help="Change the height of the output area display"
+        )
+
+    @argument(
+        '-t', '--tab', action='store_true',
+        help="Open pythontutor in a new tab",
         )
 
     #@needs_local_scope
@@ -107,11 +113,15 @@ class TutorMagics(Magics):
         if lang == "javascript":
             url += "py=js&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
 
-        # Display the results in the output area
-        if args.height:
-            display(IFrame(url, height = int(args.height[0]), width = "100%"))
+        # Display in new tab, or in iframe?
+        if args.tab:
+            webbrowser.open(url)
         else:
-            display(IFrame(url, height = 350, width = "100%"))
+            # Display the results in the output area
+            if args.height:
+                display(IFrame(url, height = int(args.height[0]), width = "100%"))
+            else:
+                display(IFrame(url, height = 350, width = "100%"))
 
 __doc__ = __doc__.format(
     tutormagic_DOC = dedent(TutorMagics.tutor.__doc__))
