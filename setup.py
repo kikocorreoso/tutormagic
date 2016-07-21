@@ -12,12 +12,12 @@ with io.open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 install_requires = [
-    'ipython>=1.0',
+    'jupyter>=1.0',
 ]
 
 setup(
     name='tutormagic',
-    version='0.1.0',
+    version='0.2.0',
     description='Magic to display pythontutor.com from a code cell in the IPython notebook.',
     long_description=long_description,
     url='https://github.com/kikocorreoso/tutormagic',
@@ -38,6 +38,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ],
 
     # What does your project relate to?
