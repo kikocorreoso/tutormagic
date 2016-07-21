@@ -115,7 +115,7 @@ class TutorMagics(Magics):
 
         # Display in new tab, or in iframe?
         if args.tab:
-            webbrowser.open(url)
+            webbrowser.open_new_tab(url)
         else:
             # Display the results in the output area
             if args.height:
