@@ -35,7 +35,8 @@ if sys.version_info.major == 2 and sys.version_info.minor == 7:
 elif sys.version_info.major == 3 and sys.version_info.minor >= 3:
     from urllib.parse import quote
 else:
-    warnings.warn("This extension has not been tested on this Python version", UserWarning)
+    warnings.warn("This extension has not been tested on this Python version", 
+                  UserWarning)
 
 from IPython.core.magic import Magics, magics_class, cell_magic
 from IPython.testing.skipdoctest import skip_doctest
@@ -57,8 +58,9 @@ class TutorMagics(Magics):
     @magic_arguments()
     @argument(
         '-l', '--lang', action='store', nargs = 1,
-        help="Possible languages to be displayed within the iframe. Possible values are: "
-             "python2, python3, java, javascript"
+        help="Languages to be displayed within the iframe or in a new tab. "
+             "Possible values are: "
+             "python2, python3, java, javascript, typescript, ruby, c, c++"
         )
 
     @argument(
@@ -87,16 +89,25 @@ class TutorMagics(Magics):
         ....: b = 1
         ....: a + b
 
-        [You will see an iframe with the pythontutor.com page including the code above]
+        [You will see an iframe with the pythontutor.com page including the 
+        code above]
         '''
         args = parse_argstring(self.tutor, line)
 
         if args.lang:
-            if args.lang[0] in ['python2', 'python3', 'java', 'javascript']:
-                lang = args.lang[0]
+            if args.lang[0].lower() in ['python2', 'python3', 
+                                        'java', 
+                                        'javascript',
+                                        'typescript',
+                                        'ruby',
+                                        'c',
+                                        'c++']:
+                lang = args.lang[0].lower()
             else:
-                raise ValueError("{} not supported. Only the following options are allowed: "
-                                 "'python2', 'python3', 'java', 'javascript'".format(args.lang[0]))
+                raise ValueError(
+                    "{} not supported. Only the following options are allowed: "
+                    "'python2', 'python3', 'java', 'javascript', "
+                    "'typescript', 'ruby', 'c', 'c++'".format(args.lang[0]))
         else:
             lang = "python3"
 
@@ -112,6 +123,14 @@ class TutorMagics(Magics):
             url += "py=java&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
         if lang == "javascript":
             url += "py=js&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
+        if lang == "typescript":
+            url += "py=ts&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
+        if lang == "ruby":
+            url += "py=ruby&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
+        if lang == "c":
+            url += "py=c&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
+        if lang == "c++":
+            url += "py=cpp&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
 
         # Display in new tab, or in iframe?
         if args.tab:
