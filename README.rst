@@ -61,21 +61,21 @@ choose one of the available languages supported by
 it will consider the code in the cell as Python3 code.
 
 -  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or ``%%tutor``
-   to show a pythontutor IFrame with ***python3*** code.
+   to show a pythontutor IFrame with **python3** code.
 -  ``%%tutor --lang python2`` or ``%%tutor -l python2`` to show a
-   pythontutor IFrame with ***python2*** code.
+   pythontutor IFrame with **python2** code.
 -  ``%%tutor --lang java`` or ``%%tutor -l java`` to show a pythontutor
-   IFrame with ***java*** code.
+   IFrame with **java** code.
 -  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to show a
-   pythontutor IFrame with ***javascript*** code.
+   pythontutor IFrame with **javascript** code.
 -  ``%%tutor --lang typescript`` or ``%%tutor -l typescript`` to show a 
-   pythontutor IFrame with ***typescript*** code.
+   pythontutor IFrame with **typescript** code.
 -  ``%%tutor --lang ruby`` or ``%%tutor -l ruby`` to show a 
-   pythontutor IFrame with ***ruby*** code.
+   pythontutor IFrame with **ruby** code.
 -  ``%%tutor --lang c`` or ``%%tutor -l c`` to show a 
-   pythontutor IFrame with ***c*** code.
+   pythontutor IFrame with **c** code.
 -  ``%%tutor --lang c++`` or ``%%tutor -l c++`` to show a 
-   pythontutor IFrame with ***c++*** code.
+   pythontutor IFrame with **c++** code.
 
 The ``--height`` or ``-h`` is used to define the height of the IFrame used to 
 embed http://pythontutor.com within the notebook. If the `--tab` option is used 
@@ -101,8 +101,7 @@ Changelog
 Version 0.2.0
 ~~~~~~~~~~~~~
 
--  Added new ``--tab`` option (thanks to Holger Karl 
-(`@hkarl <https://github.com/hkarl>`__)).
+-  Added new ``--tab`` option (thanks to Holger Karl (`@hkarl <https://github.com/hkarl>`__)).
 -  Added new ``--height`` option (thanks to Tom Simonart(`@tomsimonart <https://github.com/tomsimonart>`__)).
 -  Added new languages available on http://pythontutor.com (Typescript, Ruby, C and C++).
 
