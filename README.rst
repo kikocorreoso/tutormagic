@@ -18,7 +18,7 @@ or
 
     pip install git+https://github.com/kikocorreoso/tutormagic.git
 
-Tested on Python 2.7.x and Python 3.4.x and 3.5.x and IPython/Jupyter 3.x/4.x.
+Tested on Python 2.7.x, 3.4.x and 3.5.x and IPython/Jupyter 3.x/4.x.
 
 Usage
 -----
@@ -61,13 +61,21 @@ choose one of the available languages supported by
 it will consider the code in the cell as Python3 code.
 
 -  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or ``%%tutor``
-   to show a pythontutor IFrame with python3 code.
+   to show a pythontutor IFrame with *python3* code.
 -  ``%%tutor --lang python2`` or ``%%tutor -l python2`` to show a
-   pythontutor IFrame with python2 code.
+   pythontutor IFrame with *python2* code.
 -  ``%%tutor --lang java`` or ``%%tutor -l java`` to show a pythontutor
-   IFrame with java code.
+   IFrame with *java* code.
 -  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to show a
-   pythontutor IFrame with javascript code.
+   pythontutor IFrame with *javascript* code.
+-  ``%%tutor --lang typescript`` or ``%%tutor -l typescript`` to show a 
+   pythontutor IFrame with *typescript* code.
+-  ``%%tutor --lang ruby`` or ``%%tutor -l ruby`` to show a 
+   pythontutor IFrame with *ruby* code.
+-  ``%%tutor --lang c`` or ``%%tutor -l c`` to show a 
+   pythontutor IFrame with *c* code.
+-  ``%%tutor --lang c++`` or ``%%tutor -l c++`` to show a 
+   pythontutor IFrame with *c++* code.
 
 The ``--height`` or ``-h`` is used to define the height of the IFrame used to 
 embed http://pythontutor.com within the notebook. If the `--tab` option is used 
@@ -85,15 +93,17 @@ notebook <http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/tut
 Name of the extension
 ---------------------
 
-The name of the extension was suggested by
-[@dsblank](https://github.com/dsblank).
+The name of the extension was suggested by Doug S. Blank 
+(`@dsblank <https://github.com/dsblank>__`).
 
 Changelog
 ---------
 Version 0.2.0
 
--  Added new ``--tab`` option (thanks to Holger Karl)
--  Added new ``--height`` option (thanks to Tom Simonart)
+-  Added new ``--tab`` option (thanks to Holger Karl 
+(`@hkarl <https://github.com/hkarl>__`)).
+-  Added new ``--height`` option (thanks to Tom Simonart(`@tomsimonart <https://github.com/tomsimonart>__`)).
+-  Added new languages available on http://pythontutor.com (Typescript, Ruby, C and C++).
 
 Version 0.1.0
 
