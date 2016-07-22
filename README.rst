@@ -1,8 +1,9 @@
-tutormagic extension for the IPython notebook
+tutormagic extension for the Jupyter notebook
 =============================================
 
 IPython magics to embed http://www.pythontutor.com within an IFrame in
-the IPython notebook using the code from an IPython code cell.
+the Jupyter notebook or to open a new tab in the browser using the code from an 
+IPython code cell (IPython kernel).
 
 Install
 -------
@@ -17,7 +18,7 @@ or
 
     pip install git+https://github.com/kikocorreoso/tutormagic.git
 
-Tested on Python 2.7 and Python 3.4 and IPython/Jupyter 3.x/4.x.
+Tested on Python 2.7.x and Python 3.4.x and 3.5.x and IPython/Jupyter 3.x/4.x.
 
 Usage
 -----
@@ -36,12 +37,28 @@ Once loaded, in a code cell in the notebook type the following:
     # some python code
     # ...
 
+to create an IFrame within the notebook with the http://www.pythontutor.com page
+with the code included in the Jupyter code cell or:
+
+.. code:: python
+
+    %%tutor --lang python3 --tab
+    # some python code
+    # ...
+
+to open http://www.pythontutor.com page in a new browser tab with the code 
+included in the Jupyter code cell.
+
 Options
 -------
 
-The only available option is the ``--lang`` or ``-l`` that allows you to
+The available options are ``--lang`` (or ``-l``), ``--height`` (or ``-h``) and 
+``--tab`` (or ``-t``):
+
+The ``--lang`` or ``-l`` option allows you to
 choose one of the available languages supported by
-`pythontutor <http://www.pythontutor.com>`__
+`pythontutor <http://www.pythontutor.com>`__. It this option is set then
+it will consider the code in the cell as Python3 code.
 
 -  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or ``%%tutor``
    to show a pythontutor IFrame with python3 code.
@@ -51,6 +68,13 @@ choose one of the available languages supported by
    IFrame with java code.
 -  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to show a
    pythontutor IFrame with javascript code.
+
+The ``--height`` or ``-h`` is used to define the height of the IFrame used to 
+embed http://pythontutor.com within the notebook. If the `--tab` option is used 
+this option will be ignored.
+
+The ``--tab`` or ``-t`` option will open http://pythontutor.com in a new tab 
+instead of within an IFrame within the notebook.
 
 Example (in spanish)
 --------------------
@@ -63,3 +87,14 @@ Name of the extension
 
 The name of the extension was suggested by
 [@dsblank](https://github.com/dsblank).
+
+Changelog
+---------
+Version 0.2.0
+
+-  Added new ``--tab`` option (thanks to Holger Karl)
+-  Added new ``--height`` option (thanks to Tom Simonart)
+
+Version 0.1.0
+
+-  Initial version
