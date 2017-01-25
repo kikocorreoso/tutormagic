@@ -1,6 +1,15 @@
 tutormagic extension for the Jupyter notebook
 =============================================
 
+-------------------------------------------------------------------------
+
+Recommendation
+==============
+
+Have a look to `nbtutor <https://github.com/lgpage/nbtutor>`_, a more polished and better solution.
+
+-------------------------------------------------------------------------
+
 Jupyter notebook magics to embed http://www.pythontutor.com within an IFrame in
 the Jupyter notebook or to open a new tab in the browser using the code from a
 notebook code cell (using the IPython kernel).
