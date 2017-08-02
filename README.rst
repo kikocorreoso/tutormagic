@@ -93,6 +93,8 @@ this option will be ignored.
 The ``--tab`` or ``-t`` option will open http://pythontutor.com in a new tab 
 instead of within an IFrame within the notebook.
 
+Use the ``--secure`` or ``-s`` option to open pythontutor.com using HTTPS. This is useful when being used in a notebook that uses SSL.
+
 Example (in spanish)
 --------------------
 
