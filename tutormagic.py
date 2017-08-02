@@ -73,6 +73,11 @@ class TutorMagics(Magics):
         help="Open pythontutor in a new tab",
         )
 
+    @argument(
+        '-s', '--secure', action='store_true',
+        help="Open pythontutor using https",
+        )
+
     #@needs_local_scope
     @argument(
         'code',
@@ -111,7 +116,13 @@ class TutorMagics(Magics):
         else:
             lang = "python3"
 
-        url = "http://pythontutor.com/iframe-embed.html#code="
+        # Sometimes user will want SSL pythontutor site if 
+        # jupyter/hub is using SSL as well
+        protocol = 'http://'
+        if args.secure:
+            protocol = 'https://'
+
+        url = protocol + "pythontutor.com/iframe-embed.html#code="
         url += quote(cell)
         url += "&origin=opt-frontend.js&cumulative=false&heapPrimitives=false"
         url += "&textReferences=false&"
