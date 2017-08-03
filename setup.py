@@ -17,7 +17,7 @@ install_requires = [
 
 setup(
     name='tutormagic',
-    version='0.2.0',
+    version='0.2.1',
     description='Magic to display pythontutor.com from a code cell in the IPython notebook.',
     long_description=long_description,
     url='https://github.com/kikocorreoso/tutormagic',
