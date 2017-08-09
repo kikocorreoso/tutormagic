@@ -53,7 +53,9 @@ class TutorMagics(Magics):
     """
     def __init__(self, shell):
         super(TutorMagics, self).__init__(shell)
-        self.custom_link_css = "box-sizing: border-box; padding: 0 5px; border: 1px solid #CFCFCF; font-size: 80%;"
+        self.custom_link_css = "box-sizing: border-box; \
+                                padding: 0 5px; \
+                                border: 1px solid #CFCFCF;"
 
     @skip_doctest
     @magic_arguments()
@@ -177,7 +179,11 @@ class TutorMagics(Magics):
         if args.link:
             # Create html link to pythontutor
             from IPython.display import HTML
-            display(HTML(data='<strong><a style="{}" target="_" href={}>Python Tutor</a></strong>'.format(self.custom_link_css, url)))
+            display(HTML(data='<div style="text-align: center;">\
+                                <strong>\
+                                    <a style="{}" target="_" href={}>Python Tutor</a>\
+                                </strong>\
+                                </div>'.format(self.custom_link_css, url)))
             
             # Run cell like normal
             self.shell.run_cell(cell)
