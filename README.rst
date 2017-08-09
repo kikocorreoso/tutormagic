@@ -98,6 +98,7 @@ Use the ``--secure`` or ``-s`` option to open PythonTutor.com using HTTPS. This 
 Use the ``--link`` option to display a link to PythonTutor, not via an iFrame.
 
 You can customize how PythonTutor is rendered via the three options available in the URL params. The following options are available:
+
   - Use the ``--cumulative`` option to tell PythonTutor to the cumulative to True
   - Use the ``--heapPrimitives`` option to tell PythonTutor to render objects on the heap
   - Use the ``--textReferences`` option to tell PythonTutor to use text labels for references
