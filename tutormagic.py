@@ -101,6 +101,11 @@ class TutorMagics(Magics):
         help="PythonTutor config: Use text labels for references", 
         )
 
+    @argument(
+        '--jumpToEnd', action='store_true', default=False,
+        help="PythonTutor config: Jump to last instruction?", 
+        )
+
     #@needs_local_scope
     @argument(
         'code',
@@ -153,6 +158,7 @@ class TutorMagics(Magics):
         url += "&cumulative={}".format(str(args.cumulative).lower())
         url += "&heapPrimitives={}".format(str(args.heapPrimitives).lower())
         url += "&textReferences={}&".format(str(args.textReferences).lower())
+        url += "&jumpToEnd={}&".format(str(args.jumpToEnd).lower())
         
         # Setup the language URL param
         if lang == "python3":
