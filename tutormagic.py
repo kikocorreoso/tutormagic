@@ -106,6 +106,11 @@ class TutorMagics(Magics):
         help="PythonTutor config: Jump to last instruction?", 
         )
 
+    @argument(
+        '--curInstr', action='store', default=0,
+        help="PythonTutor config: Start at which step?", 
+        )
+
     #@needs_local_scope
     @argument(
         'code',
@@ -157,9 +162,10 @@ class TutorMagics(Magics):
         # Add custom pythontutor options, defaults to all false
         url += "&cumulative={}".format(str(args.cumulative).lower())
         url += "&heapPrimitives={}".format(str(args.heapPrimitives).lower())
-        url += "&textReferences={}&".format(str(args.textReferences).lower())
-        url += "&jumpToEnd={}&".format(str(args.jumpToEnd).lower())
-        
+        url += "&textReferences={}".format(str(args.textReferences).lower())
+        url += "&jumpToEnd={}".format(str(args.jumpToEnd).lower())
+        url += "&curInstr={}&".format(str(args.curInstr).lower())
+
         # Setup the language URL param
         if lang == "python3":
             url += "py=3"
@@ -179,7 +185,7 @@ class TutorMagics(Magics):
             url += "py=cpp"
         
         # Add the rest of the misc options to pythontutor
-        url += "&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"       
+        url += "&rawInputLstJSON=%5B%5D&codeDivWidth=50%25&codeDivHeight=100%25"       
 
         # Display in new tab, or in iframe, or link to it via anchor link?
         if args.link:
