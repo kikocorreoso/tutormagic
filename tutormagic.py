@@ -53,6 +53,9 @@ class TutorMagics(Magics):
     """
     def __init__(self, shell):
         super(TutorMagics, self).__init__(shell)
+        self.custom_link_css = "box-sizing: border-box; \
+                                padding: 0 5px; \
+                                border: 1px solid #CFCFCF;"
 
     @skip_doctest
     @magic_arguments()
@@ -76,6 +79,36 @@ class TutorMagics(Magics):
     @argument(
         '-s', '--secure', action='store_true',
         help="Open pythontutor using https",
+        )
+
+    @argument(
+        '--link', action='store_true',
+        help="Just display a link to pythontutor",
+        )
+
+    @argument(
+        '--cumulative', action='store_true', default=False,
+        help="PythonTutor config: Set the cumulative option to True", 
+        )
+    
+    @argument(
+        '--heapPrimitives', action='store_true', default=False,
+        help="PythonTutor config: Render objects on the heap", 
+        )
+    
+    @argument(
+        '--textReferences', action='store_true', default=False,
+        help="PythonTutor config: Use text labels for references", 
+        )
+
+    @argument(
+        '--jumpToEnd', action='store_true', default=False,
+        help="PythonTutor config: Jump to last instruction?", 
+        )
+
+    @argument(
+        '--curInstr', action='store', default=0,
+        help="PythonTutor config: Start at which step?", 
         )
 
     #@needs_local_scope
@@ -124,27 +157,50 @@ class TutorMagics(Magics):
 
         url = protocol + "pythontutor.com/iframe-embed.html#code="
         url += quote(cell)
-        url += "&origin=opt-frontend.js&cumulative=false&heapPrimitives=false"
-        url += "&textReferences=false&"
-        if lang == "python3":
-            url += "py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "python2":
-            url += "py=2&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "java":
-            url += "py=java&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "javascript":
-            url += "py=js&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "typescript":
-            url += "py=ts&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "ruby":
-            url += "py=ruby&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "c":
-            url += "py=c&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
-        if lang == "c++":
-            url += "py=cpp&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=50%25&codeDivHeight=100%25"
+        url += "&origin=opt-frontend.js"
 
-        # Display in new tab, or in iframe?
-        if args.tab:
+        # Add custom pythontutor options, defaults to all false
+        url += "&cumulative={}".format(str(args.cumulative).lower())
+        url += "&heapPrimitives={}".format(str(args.heapPrimitives).lower())
+        url += "&textReferences={}".format(str(args.textReferences).lower())
+        url += "&jumpToEnd={}".format(str(args.jumpToEnd).lower())
+        url += "&curInstr={}&".format(str(args.curInstr).lower())
+
+        # Setup the language URL param
+        if lang == "python3":
+            url += "py=3"
+        elif lang == "python2":
+            url += "py=2"
+        elif lang == "java":
+            url += "py=java"
+        elif lang == "javascript":
+            url += "py=js"
+        elif lang == "typescript":
+            url += "py=ts"
+        elif lang == "ruby":
+            url += "py=ruby"
+        elif lang == "c":
+            url += "py=c"
+        elif lang == "c++":
+            url += "py=cpp"
+        
+        # Add the rest of the misc options to pythontutor
+        url += "&rawInputLstJSON=%5B%5D&codeDivWidth=50%25&codeDivHeight=100%25"       
+
+        # Display in new tab, or in iframe, or link to it via anchor link?
+        if args.link:
+            # Create html link to pythontutor
+            from IPython.display import HTML
+            display(HTML(data='<div style="text-align: center;">\
+                                <strong>\
+                                    <a style="{}" target="_" href={}>Python Tutor</a>\
+                                </strong>\
+                                </div>'.format(self.custom_link_css, url)))
+            
+            # Run cell like normal
+            self.shell.run_cell(cell)
+        elif args.tab:
+            # Open up a new tab in the browser to pythontutor URL
             webbrowser.open_new_tab(url)
         else:
             # Display the results in the output area

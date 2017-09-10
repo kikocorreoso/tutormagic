@@ -93,7 +93,15 @@ this option will be ignored.
 The ``--tab`` or ``-t`` option will open http://pythontutor.com in a new tab 
 instead of within an IFrame within the notebook.
 
-Use the ``--secure`` or ``-s`` option to open pythontutor.com using HTTPS. This is useful when being used in a notebook that uses SSL.
+Use the ``--secure`` or ``-s`` option to open PythonTutor.com using HTTPS. This is useful when being used in a notebook that uses SSL.
+
+Use the ``--link`` option to display a link to PythonTutor, not via an iFrame.
+
+You can customize how PythonTutor is rendered via the three options available in the URL params. The following options are available:
+
+  - Use the ``--cumulative`` option to tell PythonTutor to the cumulative to True
+  - Use the ``--heapPrimitives`` option to tell PythonTutor to render objects on the heap
+  - Use the ``--textReferences`` option to tell PythonTutor to use text labels for references
 
 Example (in spanish)
 --------------------
