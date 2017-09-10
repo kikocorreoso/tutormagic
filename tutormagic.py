@@ -43,7 +43,7 @@ from IPython.testing.skipdoctest import skip_doctest
 from IPython.core.magic_arguments import (argument, magic_arguments,
                                           parse_argstring)
 from IPython.utils.text import dedent
-from IPython.display import display, IFrame
+from IPython.display import display, IFrame, HTML
 
 @magics_class
 class TutorMagics(Magics):
@@ -53,9 +53,6 @@ class TutorMagics(Magics):
     """
     def __init__(self, shell):
         super(TutorMagics, self).__init__(shell)
-        self.custom_link_css = "box-sizing: border-box; \
-                                padding: 0 5px; \
-                                border: 1px solid #CFCFCF;"
 
     @skip_doctest
     @magic_arguments()
@@ -68,7 +65,7 @@ class TutorMagics(Magics):
 
     @argument(
         '-h', '--height', action='store', nargs=1,
-        help="Change the height of the output area display"
+        help="Change the height of the output area display in pixels"
         )
 
     @argument(
@@ -78,12 +75,17 @@ class TutorMagics(Magics):
 
     @argument(
         '-s', '--secure', action='store_true',
-        help="Open pythontutor using https",
+        help="Open pythontutor using https in a new tab",
         )
 
     @argument(
-        '--link', action='store_true',
+        '-k', '--link', action='store_true',
         help="Just display a link to pythontutor",
+        )
+        
+    @argument(
+        '-r', '--run', action='store_true',
+        help="Run the cell code also in the notebook",
         )
 
     @argument(
@@ -102,13 +104,13 @@ class TutorMagics(Magics):
         )
 
     @argument(
-        '--jumpToEnd', action='store_true', default=False,
-        help="PythonTutor config: Jump to last instruction?", 
-        )
-
-    @argument(
         '--curInstr', action='store', default=0,
-        help="PythonTutor config: Start at which step?", 
+        help="PythonTutor config: Start at the defined step", 
+        )
+        
+    @argument(
+        '--verticalStack', action='store_true', default=False,
+        help="Set visualization to stack atop one another", 
         )
 
     #@needs_local_scope
@@ -163,8 +165,8 @@ class TutorMagics(Magics):
         url += "&cumulative={}".format(str(args.cumulative).lower())
         url += "&heapPrimitives={}".format(str(args.heapPrimitives).lower())
         url += "&textReferences={}".format(str(args.textReferences).lower())
-        url += "&jumpToEnd={}".format(str(args.jumpToEnd).lower())
         url += "&curInstr={}&".format(str(args.curInstr).lower())
+        url += "&verticalStack={}&".format(str(args.verticalStack).lower())
 
         # Setup the language URL param
         if lang == "python3":
@@ -190,24 +192,32 @@ class TutorMagics(Magics):
         # Display in new tab, or in iframe, or link to it via anchor link?
         if args.link:
             # Create html link to pythontutor
-            from IPython.display import HTML
-            display(HTML(data='<div style="text-align: center;">\
-                                <strong>\
-                                    <a style="{}" target="_" href={}>Python Tutor</a>\
-                                </strong>\
-                                </div>'.format(self.custom_link_css, url)))
-            
-            # Run cell like normal
-            self.shell.run_cell(cell)
+            css = ("box-sizing: border-box; "
+                   "padding: 0 5px; border: "
+                   "1px solid #CFCFCF;")
+            display(
+                HTML(
+                    data=(
+                        '<div class="text-center"><strong>'
+                        '<a style="{0}" target="_" href={1}>Python Tutor</a>'
+                        '</strong></div>'.format(css, url)
+                    )
+                )
+            )
         elif args.tab:
             # Open up a new tab in the browser to pythontutor URL
             webbrowser.open_new_tab(url)
         else:
             # Display the results in the output area
             if args.height:
-                display(IFrame(url, height = int(args.height[0]), width = "100%"))
+                display(IFrame(
+                    url, height = int(args.height[0]), width = "100%"
+                ))
             else:
                 display(IFrame(url, height = 350, width = "100%"))
+        if args.run:
+			# Run cell like normal
+            self.shell.run_cell(cell)
 
 __doc__ = __doc__.format(
     tutormagic_DOC = dedent(TutorMagics.tutor.__doc__))
