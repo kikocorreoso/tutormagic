@@ -20,14 +20,20 @@ Install
 .. code:: python
 
     pip install tutormagic
-
+    
 or
+
+.. code:: python
+
+    conda install tutormagic
+
+or (for the development version)
 
 .. code:: python
 
     pip install git+https://github.com/kikocorreoso/tutormagic.git
 
-Tested on Python 2.7.x, 3.4.x and 3.5.x and IPython/Jupyter 3.x/4.x.
+Tested on Python 2.7.x, 3.4.x, 3.5.x and 3.6.x and IPython/Jupyter 3.x/4.x/5.x.
 
 Usage
 -----
@@ -61,10 +67,7 @@ included in the Jupyter code cell.
 Options
 -------
 
-The available options are ``--lang`` (or ``-l``), ``--height`` (or ``-h``) and 
-``--tab`` (or ``-t``):
-
-The ``--lang`` or ``-l`` option allows you to
+``--lang`` or ``-l``: it allows you to
 choose one of the available languages supported by
 `pythontutor <http://www.pythontutor.com>`__. It this option is set then
 it will consider the code in the cell as Python3 code.
@@ -85,23 +88,53 @@ it will consider the code in the cell as Python3 code.
    pythontutor IFrame with **c** code.
 -  ``%%tutor --lang c++`` or ``%%tutor -l c++`` to show a 
    pythontutor IFrame with **c++** code.
+ 
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/normal.png
+   :width: 500 px
 
-The ``--height`` or ``-h`` is used to define the height of the IFrame used to 
-embed http://pythontutor.com within the notebook. If the `--tab` option is used 
+``--height`` or ``-h``: it changes the height of the output area display in pixels. It is used to define the height of the IFrame used to embed http://pythontutor.com within the notebook. If the `--tab` option is used 
 this option will be ignored.
 
-The ``--tab`` or ``-t`` option will open http://pythontutor.com in a new tab 
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/height.png
+   :width: 500 px
+
+``--tab`` or ``-t``: it will open http://pythontutor.com in a new tab 
 instead of within an IFrame within the notebook.
 
-Use the ``--secure`` or ``-s`` option to open PythonTutor.com using HTTPS. This is useful when being used in a notebook that uses SSL.
+``--secure`` or ``-s``: it will use HTTPS to open PythonTutor.com. This is useful when being used in a notebook that uses SSL.
 
-Use the ``--link`` option to display a link to PythonTutor, not via an iFrame.
+``--link`` or ``-k``: it will display a link to PythonTutor, not via an iFrame.
 
-You can customize how PythonTutor is rendered via the three options available in the URL params. The following options are available:
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/link1.png
+   :width: 500 px
+
+``--run`` or ``-r``: Use this option if you also want to run the code in the cell in the notebook.
+
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/run1.png
+   :width: 500 px
+
+You can customize how PythonTutor is rendered via the options available below in the URL params. The following options are available:
 
   - Use the ``--cumulative`` option to tell PythonTutor to the cumulative to True
+
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/cumulative1.png
+   :width: 500 px
+
   - Use the ``--heapPrimitives`` option to tell PythonTutor to render objects on the heap
+  
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/test_heap1.png
+   :width: 500 px
+
   - Use the ``--textReferences`` option to tell PythonTutor to use text labels for references
+  - Use the ``--curInstr`` followed by a number to start the visualisation at the defined step
+  
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/current1.png
+   :width: 500 px
+
+- Use the ``--verticalStack`` to set visualization to stack atop one another.
+  
+ .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/vertical1.png
+   :width: 500 px
 
 Example (in spanish)
 --------------------
@@ -117,6 +150,13 @@ The name of the extension was suggested by Doug S. Blank
 
 Changelog
 ---------
+
+Version 0.2.1
+~~~~~~~~~~~~~
+
+- Added options ``--secure``, ``--link``, ``--cumulative``, ``--heapPrimitives`` and ``--textReferences`` (thanks to James Quacinella (`@jquacinella <https://github.com/jquacinella>`__)).
+- Added options ``--run``, ``--curInstr`` and ``--verticalStack``.
+
 Version 0.2.0
 ~~~~~~~~~~~~~
 
