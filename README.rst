@@ -21,6 +21,12 @@ Install
 
     pip install tutormagic
     
+or with conda
+
+.. code:: python
+
+    conda install -c kikocorreoso tutormagic
+
 or (for the development version)
 
 .. code:: python
