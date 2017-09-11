@@ -115,18 +115,18 @@ instead of within an IFrame within the notebook.
 
 You can customize how PythonTutor is rendered via the options available below in the URL params. The following options are available:
 
-  - Use the ``--cumulative`` option to tell PythonTutor to the cumulative to True
+- Use the ``--cumulative`` option to tell PythonTutor to the cumulative to True
 
  .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/cumulative1.png
    :width: 500 px
 
-  - Use the ``--heapPrimitives`` option to tell PythonTutor to render objects on the heap
+- Use the ``--heapPrimitives`` option to tell PythonTutor to render objects on the heap
   
  .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/test_heap1.png
    :width: 500 px
 
-  - Use the ``--textReferences`` option to tell PythonTutor to use text labels for references
-  - Use the ``--curInstr`` followed by a number to start the visualisation at the defined step
+- Use the ``--textReferences`` option to tell PythonTutor to use text labels for references
+- Use the ``--curInstr`` followed by a number to start the visualisation at the defined step
   
  .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/current1.png
    :width: 500 px
