@@ -136,10 +136,12 @@ You can customize how PythonTutor is rendered via the options available below in
  .. image:: https://raw.githubusercontent.com/kikocorreoso/tutormagic/master/imgs/vertical1.png
    :width: 500 px
 
-Example (in spanish)
---------------------
+Examples
+--------
 
-`Example
+`Example notebook included in the repository <http://nbviewer.jupyter.org/github/kikocorreoso/tutormagic/blob/master/examples/Examples.ipynb>`__.
+
+`Example (in spanish)
 notebook <http://nbviewer.ipython.org/github/Pybonacci/notebooks/blob/master/tutormagic.ipynb>`__.
 
 Name of the extension
