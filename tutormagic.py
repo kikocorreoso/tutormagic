@@ -16,8 +16,10 @@ To enable the magics below, execute ``%load_ext tutormagic``.
 
 """
 
+__version__="0.3.0"
+
 #-----------------------------------------------------------------------------
-# Copyright (C) 2015 Kiko Correoso and the pythontutor.com developers
+# Copyright (C) 2015-2017 Kiko Correoso and the pythontutor.com developers
 #
 # Distributed under the terms of the MIT License. The full license is in
 # the file LICENSE, distributed as part of this software.
