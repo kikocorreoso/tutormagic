@@ -21,12 +21,6 @@ Install
 
     pip install tutormagic
     
-or
-
-.. code:: python
-
-    conda install tutormagic
-
 or (for the development version)
 
 .. code:: python
