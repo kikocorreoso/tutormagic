@@ -153,7 +153,7 @@ The name of the extension was suggested by Doug S. Blank
 Changelog
 ---------
 
-Version 0.2.1
+Version 0.3.0
 ~~~~~~~~~~~~~
 
 - Added options ``--secure``, ``--link``, ``--cumulative``, ``--heapPrimitives`` and ``--textReferences`` (thanks to James Quacinella (`@jquacinella <https://github.com/jquacinella>`__)).
