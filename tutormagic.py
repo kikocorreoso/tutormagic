@@ -137,7 +137,8 @@ class TutorMagics(Magics):
         args = parse_argstring(self.tutor, line)
 
         if args.lang:
-            if args.lang[0].lower() in ['python2', 'python3', 
+            if args.lang[0].lower() in ['python2', 'python3',
+					'py3anaconda',
                                         'java', 
                                         'javascript',
                                         'typescript',
@@ -148,7 +149,7 @@ class TutorMagics(Magics):
             else:
                 raise ValueError(
                     "{} not supported. Only the following options are allowed: "
-                    "'python2', 'python3', 'java', 'javascript', "
+                    "'python2', 'python3', 'py3anaconda', 'java', 'javascript', "
                     "'typescript', 'ruby', 'c', 'c++'".format(args.lang[0]))
         else:
             lang = "python3"
@@ -175,6 +176,8 @@ class TutorMagics(Magics):
             url += "py=3"
         elif lang == "python2":
             url += "py=2"
+        elif lang == "py3anaconda":
+            url += "py=py3anaconda"
         elif lang == "java":
             url += "py=java"
         elif lang == "javascript":
