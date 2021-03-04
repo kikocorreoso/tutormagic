@@ -25,7 +25,7 @@ __version__="0.3.0"
 # the file LICENSE, distributed as part of this software.
 #
 # Contributors:
-#   kikocorreoso
+#   kikocorreoso, jquacinella, hkarl, naereen, tomsimonart
 #-----------------------------------------------------------------------------
 
 import webbrowser
@@ -62,7 +62,7 @@ class TutorMagics(Magics):
         '-l', '--lang', action='store', nargs = 1,
         help="Languages to be displayed within the iframe or in a new tab. "
              "Possible values are: "
-             "python2, python3, java, javascript, typescript, ruby, c, c++"
+             "python2, python3, py3anaconda, java, javascript, typescript, ruby, c, c++"
         )
 
     @argument(
@@ -137,7 +137,8 @@ class TutorMagics(Magics):
         args = parse_argstring(self.tutor, line)
 
         if args.lang:
-            if args.lang[0].lower() in ['python2', 'python3',
+            if args.lang[0].lower() in ['python2', 
+                                        'python3',
 					'py3anaconda',
                                         'java', 
                                         'javascript',
