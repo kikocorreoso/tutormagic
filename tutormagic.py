@@ -16,7 +16,7 @@ To enable the magics below, execute ``%load_ext tutormagic``.
 
 """
 
-__version__="0.3.0"
+__version__="0.3.1"
 
 #-----------------------------------------------------------------------------
 # Copyright (C) 2015-2017 Kiko Correoso and the pythontutor.com developers
