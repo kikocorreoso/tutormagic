@@ -33,7 +33,7 @@ or (for the development version)
 
     pip install git+https://github.com/kikocorreoso/tutormagic.git
 
-Tested on Python 2.7.x, 3.4.x, 3.5.x and 3.6.x and IPython/Jupyter 3.x/4.x/5.x.
+Tested on Python 2.7.x/3.4.x/3.5.x/3.6.x/3.7.x/3.8.x/3.9.x and Jupyter 3.x/4.x/5.x/6.x.
 
 Usage
 -----
@@ -69,13 +69,15 @@ Options
 
 ``--lang`` or ``-l``: it allows you to
 choose one of the available languages supported by
-`pythontutor <http://www.pythontutor.com>`__. It this option is set then
+`pythontutor <http://www.pythontutor.com>`__. If this option is not used then
 it will consider the code in the cell as Python3 code.
 
 -  ``%%tutor --lang python3`` or ``%%tutor -l python3`` or ``%%tutor``
    to show a pythontutor IFrame with **python3** code.
 -  ``%%tutor --lang python2`` or ``%%tutor -l python2`` to show a
    pythontutor IFrame with **python2** code.
+-  ``%%tutor --lang py3anaconda`` or ``%%tutor -l py3anaconda`` to show a
+   pythontutor IFrame with **py3anaconda** code. This option allows you to import libs like `numpy`. This is experimental.
 -  ``%%tutor --lang java`` or ``%%tutor -l java`` to show a pythontutor
    IFrame with **java** code.
 -  ``%%tutor --lang javascript`` or ``%%tutor -l javascript`` to show a
@@ -152,6 +154,11 @@ The name of the extension was suggested by Doug S. Blank
 
 Changelog
 ---------
+
+Version 0.3.1
+-------------
+
+- Added option `--lang py3anaconda` (thanks to `@naereen <https://github.com/naereen>`__).
 
 Version 0.3.0
 ~~~~~~~~~~~~~
