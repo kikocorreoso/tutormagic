@@ -45,7 +45,7 @@ from IPython.testing.skipdoctest import skip_doctest
 from IPython.core.magic_arguments import (argument, magic_arguments,
                                           parse_argstring)
 from IPython.utils.text import dedent
-from IPython.display import display, IFrame, HTML
+from IPython.display import display, IFrame, HTML, Javascript
 
 @magics_class
 class TutorMagics(Magics):
@@ -212,7 +212,7 @@ class TutorMagics(Magics):
             )
         elif args.tab:
             # Open up a new tab in the browser to pythontutor URL
-            webbrowser.open_new_tab(url)
+            display(Javascript('window.open("{url}");'.format(url=url)))
         else:
             # Display the results in the output area
             if args.height:
